@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Metric/Imp Converter</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./public/style.css">
+  </head>
+  <body>
+    <div id="card">
+      <header>
+      <h1 id="header">
+        Metric/Imp Converter
+      </h1>
+    </header>
+      
+    <div id="howtouse">
+      <h3>How to use</h3>
+      <ul>
+        <li>Convert miles (mi) to kilometers (km) and vice versa, </li>
+        <li>Convert gallons (gal) to litters (L) vice versa, and</li>
+        <li>Convert ponds (lbs) to kilograms (kg) vice versa.</li>
+      </ul>  
+    </div>
+
+    <div id="testui" >
+      
+      <form id="convertForm" class="border">
+        <input type="text" id="convertField" name="input" placeholder="3.1mi" >
+        <input id="convert" type="submit" value="Convert!">
+      </form>
+      <p id="result"></p>
+    </div>
+    </div>
+    
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        $('#convertForm').submit(function() {
+          event.preventDefault();
+          $.ajax({
+            url: '/api/convert',
+            type: 'get',
+            data: $('#convertForm').serialize(),
+            success: function(data) {
+              $('#result').text(data.string || data);
+            }
+          });
+        });
+      });
+   </script>
+  </body>
+</html>
