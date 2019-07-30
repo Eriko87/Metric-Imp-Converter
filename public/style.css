@@ -1,0 +1,35 @@
+*{
+  margin:auto;
+}
+#card{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 800px;
+  margin-top:5%;
+  background-color:#CCEDC4;
+}
+#header{
+  font-size: 30px;
+  color: #3F3FBF;
+  text-align: center;
+  padding: 40px;
+}
+
+#howtouse{
+  font-size: 20px;
+  padding: 30px;
+  border: 1px solid
+}
+
+#convertForm{
+  padding: 30px;
+}
+
+#testui{
+  padding: 30px;
+}
+p{
+  font-size: 20px;
+  text-aligh:center;
+}
